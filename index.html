@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Website Landing Page</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header class="sticky">
+        <a href="#"><img src="./logo.png " class="logo"></a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">menu</a></li>
+            <li><a href="#">What's new</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </header>
+    <main>
+    <section class="section-1">
+        <div class="circle">
+
+        </div>
+       
+        <div class="content">
+            <div class="textbox">
+                <h2>It's not just Coffee<br>It's <span class="text">Starbucks</span></h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Repellendus veniam dolores sapiente impedit consequatur, ab saepe incidunt. 
+                    Magni obcaecati animi tempora vero aperiam architecto, dicta voluptatibus 
+                    provident delectus iusto tempore.</p>
+              <a href="#" class="hover">Learn More</a>
+            </div>
+            <div class="img-box">
+                <img src="./img1.png" class="starbucks">
+            </div>
+        </div>
+        <ul class="thumb">
+            <li><img src="./thumb1.png" onclick="slideimage('img1.png');changecirclecolor('#017143')"></li>
+            <li><img src="./thumb2.png" onclick="slideimage('img2.png');changecirclecolor('#eb7495')"></li>
+            <li><img src="./thumb3.png" onclick="slideimage('img3.png');changecirclecolor('#d752b1')"></li>
+        </ul>
+        <ul class="sci">
+            <li><a href="#"><img src="./facebook.png" ></a></li>
+            <li><a href="#"><img src="./twitter.png" ></a></li>
+            <li><a href="#"><img src="./instagram.png" ></a></li>
+        </ul>
+    </section>
+
+    <section>
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Green Faloda</button>
+            <button class="tablinks" onclick="openCity(event, 'Paris')">Pink Faloda</button>
+            <button class="tablinks" onclick="openCity(event, 'Tokyo')">Dark pink Faloda</button>
+            <button class="tablinks" onclick="openCity(event, 'France')">Faloda</button>
+            <button class="tablinks" onclick="openCity(event, 'Brazil')">Dry Fruits Faloda</button>
+          </div>
+          
+          <div id="London" class="tabcontent">
+            <img src="./img1.png" alt="" width="200px" class="starbucks-img">
+            <p>Green Faloda</p>
+            <p>Rs. 250</p>
+            <button class="addcart">Add to Cart</button>
+          </div>
+          
+          <div id="Paris" class="tabcontent">
+            <img src="./img2.png" alt="" width="200px" class="starbucks-img1">
+            <p>Green Faloda</p>
+            <p>Rs. 250</p>
+            <button class="addcart addcart1">Add to Cart</button>
+          </div>
+          
+          <div id="Tokyo" class="tabcontent">
+            <img src="./img3.png" alt="" width="200px" class="starbucks-img2">
+            <p>Green Faloda</p>
+            <p>Rs. 250</p>
+            <button class="addcart  addcart2">Add to Cart</button>
+          </div>
+          <div id="France" class="tabcontent">
+            <img src="./15.jpg" alt="" width="200px" class="starbucks-img3">
+            <p>Green Faloda</p>
+            <p>Rs. 250</p>
+            <button class="addcart  addcart3">Add to Cart</button>
+          </div>
+          <div id="Brazil" class="tabcontent">
+            <img src="./16.jpg" alt="" width="200px" class="starbucks-img4">
+            <p>Green Faloda</p>
+            <p>Rs. 250</p>
+            <button class="addcart  addcart4">Add to Cart</button>
+          </div>
+    </section>
+</main>
+    <script src="./anime.min.js"></script>
+
+    <script type="text/javascript">
+        function slideimage(anything){
+            document.querySelector('.starbucks').src =anything
+            document.querySelector('.starbucks-img').src =anything
+            document.querySelector('.starbucks-img1').src =anything
+            document.querySelector('.starbucks-img2').src =anything
+            document.querySelector('.starbucks-img3').src =anything
+            document.querySelector('.starbucks-img4').src =anything
+        }
+        function changecirclecolor(color){
+           const circle = document.querySelector('.circle');
+           const text = document.querySelector('.text');
+           const hover = document.querySelector('.hover');
+           const header = document.querySelector('header');
+           const tab = document.querySelector('.tab');
+           const addcart = document.querySelector('.addcart');
+           const addcart1 = document.querySelector('.addcart1');
+           const addcart2 = document.querySelector('.addcart2');
+           const addcart3 = document.querySelector('.addcart3');
+           const addcart4 = document.querySelector('.addcart4');
+           circle.style.background = color;
+           text.style.color = color;
+           hover.style.background = color;
+           header.style.background = color;
+           tab.style.background = color;
+           addcart.style.background = color;
+           addcart1.style.background = color;
+           addcart2.style.background = color;
+           addcart3.style.background = color;
+           addcart4.style.background = color;
+        }
+    </script>
+    <script>
+        const button = document.querySelector('.hover');
+        const mouse = () => {
+            anime({
+                targets: button,
+                width: '100%',
+                scale: {
+                    delay: 800,
+                    value: 1.5,
+                },
+                duration: 1500
+            })
+        }
+        const mouseout = () => {
+            anime({
+                targets: button,
+                width: '30%',
+                Text: 'center',
+                scale: {
+                    delay: 800,
+                    value: 1,
+                },
+                duration: 1500
+            })
+        }
+        
+        button.addEventListener('mouseover', mouse);
+        button.addEventListener('mouseout', mouseout);
+
+        $(window).scroll(function(){
+            var sticky = $('.sticky'),
+      scroll = $(window).scrollTop();
+
+  if (scroll >= 100) sticky.addClass('fixed');
+  else sticky.removeClass('fixed');
+});
+    </script>
+    <script>
+        function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+        
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+        </script>
+</body>
+</html>

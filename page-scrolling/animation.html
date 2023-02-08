@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./animation.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+</head>
+
+<body>
+  <header>
+      <nav>
+          <ul>
+             <a href="#"><li>Home</li></a>
+             <a href="#"><li>About Us</li></a>
+             <a href="#"><li>Faq</li></a>
+             <a href="#"><li>ingredients</li></a>
+          </ul>
+        <div class="close">
+            <i class="fa fa-close"></i>
+          </div>
+          
+          <!---- search field ------->
+          <div class="search">
+            <i class="fa fa-search"></i>
+            <input type="text" class="input">
+          </div>
+      </nav>
+  </header>
+
+   
+<main>
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+                <div class="box">
+                    <div class="content item">
+                        <h1>Start your Beard <br>
+                            journey with us</h1>
+                   
+                    </div>
+                    <div class="content1 item">
+                  <img src="./6.png" alt="">
+                    </div>
+                    <div class="content2 item">
+                        <img src="./6.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="box">
+                    <div class="content item">
+                        <h1>Start your Beard <br>
+                            journey with us</h1>
+                        
+                    </div>
+                    <div class="content1 item">
+                        <img src="./6.png" alt="">
+                    </div>
+                    <div class="content2 item">
+                        <img src="./6.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="box">
+                    <div class="content item">
+                        <h1>Start your Beard <br>
+                            journey with us</h1>
+                  
+                    </div>
+                    <div class="content1 item">
+                        <img src="./6.png" alt="">
+                    </div>
+                    <div class="content2 item">
+                        <img src="./6.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+        <!-- <div class="swiper-scrollbar"></div> -->
+    </div>
+</main>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".swiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            on: {
+                slideChange: function () {
+                    var activeIndex = this.activeIndex;
+                    var realIndex = this.slides.eq(activeIndex).attr('data-swiper-slide-index');
+
+                    console.log(activeIndex)
+                    console.log(realIndex)
+                    $('.swiper-slide').children('.box').removeClass('border-animated');
+                    $('.swiper-slide[data-swiper-slide-index="' + realIndex + '"]').children('.box').addClass('border-animated');
+                    $('.swiper-slide').children('.box').children('.content').removeClass('content-animated');
+                    $('.swiper-slide[data-swiper-slide-index="' + realIndex + '"]').children('.box').children('.content').addClass('content-animated');
+                    $('.swiper-slide').children('.box').children('.content1').removeClass('content-img-animated');
+                    $('.swiper-slide[data-swiper-slide-index="' + realIndex + '"]').children('.box').children('.content1').addClass('content-img-animated');
+                    $('.swiper-slide').children('.box').children('.content2').removeClass('content-img-anime');
+                    $('.swiper-slide[data-swiper-slide-index="' + realIndex + '"]').children('.box').children('.content2').addClass('content-img-anime');
+                   
+                    //  $('.swiper-slide[data-swiper-slide-index="'+realIndex+'"]').next().next().addClass('border-animated');
+                },
+            }
+        });
+//                 swiper.on('slideChange', function (e) {
+//     console.log('*** mySwiper.activeIndex', swiper.activeIndex);
+//     $(".swiper-slide-active").addClass('border-animated')
+// });
+
+
+    </script>
+    <!-- search bar js -->
+    <script>
+        (function($){
+    var search_button = $('.fa-search'),
+        close_button  = $('.close'),
+        input = $('.input');
+    search_button.on('click',function(){
+      $(this).parent().addClass('display-none');
+      $(this).parent().addClass('open');
+      close_button.fadeIn(500);
+      input.fadeIn(500);
+    });
+    
+    close_button.on('click',function(){
+        search_button.parent().removeClass('display-none');
+      search_button.parent().removeClass('open');
+      close_button.fadeOut(500);
+      input.fadeOut(500);
+    });
+  })(jQuery);
+    </script>
+
+</body>
+
+</html>
